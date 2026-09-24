@@ -1,4 +1,6 @@
 # importing libraries
+import os
+import urllib.request
 import pandas as pd
 import numpy as np
 import seaborn as sns
@@ -9,6 +11,14 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
 import warnings
 warnings.filterwarnings('ignore')
+
+# download dataset if not present
+if not os.path.exists('IRIS.csv'):
+    print("Downloading IRIS.csv...")
+    urllib.request.urlretrieve(
+        "https://raw.githubusercontent.com/mwaskom/seaborn-data/master/iris.csv",
+        "IRIS.csv"
+    )
 
 # loding dataset
 df = pd.read_csv('IRIS.csv')

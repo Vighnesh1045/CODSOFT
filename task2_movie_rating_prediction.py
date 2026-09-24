@@ -1,9 +1,23 @@
+import os
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import warnings
 warnings.filterwarnings('ignore')
+
+# movies.csv is from Kaggle — download it manually before running:
+#   pip install kaggle
+#   kaggle datasets download -d PromptCloudHQ/imdb-indian-movies-dataset
+#   unzip imdb-indian-movies-dataset.zip
+if not os.path.exists('movies.csv'):
+    raise FileNotFoundError(
+        "movies.csv not found.\n"
+        "Download it from Kaggle:\n"
+        "  pip install kaggle\n"
+        "  kaggle datasets download -d PromptCloudHQ/imdb-indian-movies-dataset\n"
+        "  unzip imdb-indian-movies-dataset.zip"
+    )
 
 df =pd.read_csv('movies.csv',encoding='latin1')
 df.head(10)
