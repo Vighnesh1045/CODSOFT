@@ -1,10 +1,20 @@
 # importing libraries
+import os
+import urllib.request
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 import warnings
 warnings.filterwarnings('ignore')
+
+# download dataset if not present
+if not os.path.exists('advertising.csv'):
+    print("Downloading advertising.csv...")
+    urllib.request.urlretrieve(
+        "https://raw.githubusercontent.com/selva86/datasets/master/Advertising.csv",
+        "advertising.csv"
+    )
 
 # loading dataset
 df = pd.read_csv('advertising.csv')

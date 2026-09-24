@@ -1,5 +1,5 @@
-
 # Import libraries
+import os
 import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
@@ -9,6 +9,19 @@ from sklearn.metrics import precision_score, recall_score, f1_score, classificat
 from imblearn.over_sampling import SMOTE
 import matplotlib.pyplot as plt
 import seaborn as sns
+
+# creditcard.csv is from Kaggle — download it manually before running:
+#   pip install kaggle
+#   kaggle datasets download -d mlg-ulb/creditcardfraud
+#   unzip creditcardfraud.zip
+if not os.path.exists('creditcard.csv'):
+    raise FileNotFoundError(
+        "creditcard.csv not found.\n"
+        "Download it from Kaggle:\n"
+        "  pip install kaggle\n"
+        "  kaggle datasets download -d mlg-ulb/creditcardfraud\n"
+        "  unzip creditcardfraud.zip"
+    )
 
 # Loading dataset
 data = pd.read_csv('creditcard.csv')

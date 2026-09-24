@@ -1,8 +1,18 @@
 # importing libraries
+import os
+import urllib.request
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+
+# download dataset if not present
+if not os.path.exists('Titanic-Dataset.csv'):
+    print("Downloading Titanic-Dataset.csv...")
+    urllib.request.urlretrieve(
+        "https://raw.githubusercontent.com/datasciencedojo/datasets/master/titanic.csv",
+        "Titanic-Dataset.csv"
+    )
 
 # loding dataset
 df = pd.read_csv('Titanic-Dataset.csv')
